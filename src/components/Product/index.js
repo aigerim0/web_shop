@@ -6,14 +6,14 @@ import useStyles from './style'
 
 const Product = ({ product }) => {
     const classes = useStyles()
-    console.log(product)
-    return <div>
-        qwert
-    </div>
+    // console.log(product)
+    // return <div>
+    //     qwert
+    // </div>
 
     return (
         <Card className={classes.root}>
-            <CardMedia className={classes.media}  title={product.name}/>
+            <CardMedia className={classes.media} image={product.image.url}  title={product.name}/>
             <CardContent>
                 <div className={classes.cardContent}>
                     <Typography variant="h5" gutterBottom>
