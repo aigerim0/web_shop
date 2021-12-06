@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { Router, Route, Switch} from "react-router-dom";
+import {Router, Route, Switch} from "react-router-dom";
 import { commerce } from "./lib/commerce";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
+
 
 
 
