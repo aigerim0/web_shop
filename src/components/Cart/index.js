@@ -1,10 +1,10 @@
 import React from 'react';
 import {Container, Typography, Button, Grid} from "@material-ui/core";
-import { Link } from  'react-router-dom'
+import {Link} from 'react-router-dom'
 import useStyles from './style'
 import CartItem from "./CartItem";
 
-const Cart = ({ cart,handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}) => {
+const Cart = ({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}) => {
     console.log(cart)
 
     const classes = useStyles()
@@ -19,7 +19,11 @@ const Cart = ({ cart,handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
             <Grid container spacing={3}>
                 {cart.line_items.map((item) => (
                     <Grid item xs={12} sm={4} key={item.id}>
-                       <CartItem item={item} onUpdateCartQty={handleUpdateCartQty} onRemoveCart={handleRemoveFromCart}/>
+                        <CartItem
+                            item={item}
+                            onUpdateCartQty={handleUpdateCartQty}
+                            onRemoveCart={handleRemoveFromCart}
+                        />
                     </Grid>
                 ))}
             </Grid>
@@ -30,11 +34,11 @@ const Cart = ({ cart,handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
                 <div>
                     <Button className={classes.emptyButton} size='large' type='button' variant='contained'
                             color='secondary'
-                    onClick={handleEmptyCart}
+                            onClick={handleEmptyCart}
                     >
                         Empty Cart
                     </Button>
-                    <Button className={classes.checkoutButton} size='large' type='button' variant='contained'
+                    <Button component={Link} to='/checkout' className={classes.checkoutButton} size='large' type='button' variant='contained'
                             color='primary'>
                         Checkout Cart
                     </Button>
@@ -43,7 +47,7 @@ const Cart = ({ cart,handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
         </>
     }
 
-    if(!cart.line_items){
+    if (!cart.line_items) {
         return "Loading..."
     }
     return (
@@ -51,7 +55,7 @@ const Cart = ({ cart,handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}
             <div className={classes.toolbar}/>
             <Typography className={classes.title} variant='h3'>Your Shopping Cart</Typography>
             {
-                  !cart.line_items.length ?
+                !cart.line_items.length ?
                     <EmptyCart/> :
                     <FilledCart/>
             }

@@ -1,11 +1,11 @@
 import React from 'react';
 import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography} from "@material-ui/core";
 import {ShoppingCart} from "@material-ui/icons";
-import { Link,useLocation } from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 import logo from '../../assets/Commerce.png'
 import useStyles from './style'
 
-const Navbar = ({ totalItems }) => {
+const Navbar = ({totalItems}) => {
     const classes = useStyles()
     const location = useLocation()
 
@@ -20,14 +20,13 @@ const Navbar = ({ totalItems }) => {
                     <div className={classes.grow}/>
                     {
                         location.pathname === "/" && (
-                    <div className={classes.button}>
-                        <IconButton component={Link} to='/cart' aria-label="Show cart item" color='inherit'>
-                            <Badge badgeContent={totalItems} color="secondary">
-                                <ShoppingCart/>
-                            </Badge>
-
-                        </IconButton>
-                    </div>)}
+                            <div className={classes.button}>
+                                <IconButton component={Link} to='/cart' aria-label="Show cart item" color='inherit'>
+                                    <Badge badgeContent={totalItems} color="secondary">
+                                        <ShoppingCart/>
+                                    </Badge>
+                                </IconButton>
+                            </div>)}
                 </Toolbar>
             </AppBar>
         </>
