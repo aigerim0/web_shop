@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import {Paper, Step, Stepper, StepLabel, Typography, CircularProgress, Divider, Button} from "@material-ui/core";
 import useStyles from './style'
-import AddressForm from "./AddressForm";
-import PaymentForm from "./PaymentForm";
+import AddressForm from "./AddressForm/AddressForm";
+import PaymentForm from "./PaymentForm/PaymentForm";
 
 
 const steps = ["Shipping address", "Payment details"]
 
 const CheckoutForm = () => {
-    const [activeStep, setActiveStep] = useState(2)
+    const [activeStep, setActiveStep] = useState(0)
     const classes = useStyles()
 const Confirmation = () => {
         return <div>
