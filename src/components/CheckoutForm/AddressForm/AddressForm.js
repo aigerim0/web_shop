@@ -39,8 +39,9 @@ const AddressForm = ({checkoutToken, next }) => {
 
     const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
         const options = await commerce.checkout.getShippingOptions(checkoutTokenId, {country, region})
-        setShippingSubdivisions(options)
-        setShippingSubdivision(options[0].id)
+        setShippingOptions(options)
+        setShippingOption(options[0])
+        console.log(options)
     }
 
     useEffect(() => {
@@ -67,7 +68,7 @@ const AddressForm = ({checkoutToken, next }) => {
                     <Grid container spacing={3}>
                         <FormInput name='firstName' label='First name'/>
                         <FormInput name='lastName' label='Last name'/>
-                        <FormInput name='address' label='Address'/>
+                        <FormInput name='address1' label='Address'/>
                         <FormInput name='email' label='Email'/>
                         <FormInput name='city' label='City'/>
                         <FormInput name='zip' label='ZIP / Postal code'/>
