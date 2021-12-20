@@ -7,7 +7,7 @@ import {commerce} from "../../../lib/commerce";
 import FormInput from "../CustomTextField";
 import {Link} from "react-router-dom";
 
-const AddressForm = ({checkoutToken, next }) => {
+const AddressForm = ({checkoutToken, next}) => {
     const [shippingCountries, setShippingCountries] = useState([])
     const [shippingCountry, setShippingCountry] = useState('')
     const [shippingSubdivisions, setShippingSubdivisions] = useState([])
@@ -64,7 +64,12 @@ const AddressForm = ({checkoutToken, next }) => {
         <>
             <Typography variant='h4' gutterBottom> Shipping Address </Typography>
             <FormProvider  {...methods}>
-                <form onSubmit={methods.handleSubmit((data) => next({...data, shippingCountry, shippingSubdivision, shippingOption }) )}>
+                <form onSubmit={methods.handleSubmit((data) => next({
+                    ...data,
+                    shippingCountry,
+                    shippingSubdivision,
+                    shippingOption
+                }))}>
                     <Grid container spacing={3}>
                         <FormInput name='firstName' label='First name'/>
                         <FormInput name='lastName' label='Last name'/>
@@ -124,7 +129,7 @@ const AddressForm = ({checkoutToken, next }) => {
                     </Grid>
                     <br/>
                     <div style={{display: "flex", justifyContent: "space-between"}}>
-                        <Button component={Link } to='/' variant="outlined"> Back to Cart </Button>
+                        <Button component={Link} to='/' variant="outlined"> Back to Cart </Button>
                         <Button type='submit' variant="contained" color='primary'>Next </Button>
                     </div>
                 </form>
