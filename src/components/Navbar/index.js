@@ -17,6 +17,7 @@ const Navbar = ({totalItems}) => {
                         <img src={logo} alt="Commerce.js" height="25px" className={classes.image}/>
                         Commerce.js
                     </Typography>
+
                     <div className={classes.grow}/>
                     {
                         location.pathname === "/" && (
@@ -29,6 +30,7 @@ const Navbar = ({totalItems}) => {
                             </div>)}
                 </Toolbar>
             </AppBar>
+
         </>
     );
 };
